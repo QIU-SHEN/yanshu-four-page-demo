@@ -1006,6 +1006,7 @@ const CUSTOMER_ALLOWED_CLINIC_NAMES = [
   '****诊所',
   '****诊所',
   '****诊所',
+  '诊所',
 ];
 
 const CUSTOMER_REVIEW_DIAGNOSTIC_SECTION_ORDERS = new Set([6, 7, 8, 9, 10, 11, 15]);
