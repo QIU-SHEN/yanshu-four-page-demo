@@ -2707,7 +2707,7 @@ const CUSTOMER_EVIDENCE_TYPES = [
   { key: 'pending', label: '待确认', className: 'is-pending-evidence' },
 ];
 
-const CUSTOMER_SUMMARY_HIGHLIGHT_RE = /(陈喜生|RFM\s*[A-Z]|粉星|黄褐斑|日光性黑子|面部皮肤松弛|皮秒激光|美塑疗法|CSKIN|企微|SUCCESS|已付款|无欠费|无余额|客户推荐\/老带新|****诊所|杨慧|陈曦|祝媛园|未命中|未找到|无法填写|待确认|1 月后复诊|划扣|消耗|客诉|理赔|退款|积分|推荐关系|医生病历|补注射|超皮秒|消炎水光|大师霜|神经酰胺霜|\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2}:\d{2})?|\d+(?:\.\d{2})?)/g;
+const CUSTOMER_SUMMARY_HIGHLIGHT_RE = /(陈喜生|RFM\s*[A-Z]|粉星|黄褐斑|日光性黑子|面部皮肤松弛|皮秒激光|美塑疗法|CSKIN|企微|SUCCESS|已付款|无欠费|无余额|客户推荐\/老带新|\*\*\*\*诊所|杨慧|陈曦|祝媛园|未命中|未找到|无法填写|待确认|1 月后复诊|划扣|消耗|客诉|理赔|退款|积分|推荐关系|医生病历|补注射|超皮秒|消炎水光|大师霜|神经酰胺霜|\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2}:\d{2})?|\d+(?:\.\d{2})?)/g;
 
 function cleanMdChapterTitle(title = '') {
   return String(title || '').replace(/==.*?==/g, '').trim();
