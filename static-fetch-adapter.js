@@ -6,9 +6,9 @@ if(!location.hash&&/(?:^|\/)index\.html$/.test(location.pathname))location.hash=
 function res(body,status){return Promise.resolve(new Response(JSON.stringify(body),{status:status||200,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}}))}
 function keyFor(url){
  var exact=url.pathname+url.search;if(Object.prototype.hasOwnProperty.call(fixtures,exact))return exact;
- if(url.pathname==='/api/customer-archive-fixtures/live')return url.searchParams.get('customerId')?'/api/customer-archive-fixtures/live?limit=1&customerId='+encodeURIComponent(meta.customerId):'/api/customer-archive-fixtures/live?limit=20&summaryOnly=1';
+ if(url.pathname==='/api/customer-archive-fixtures/live')return url.searchParams.get('customerId')?'/api/customer-archive-fixtures/live?limit=1&customerId='+encodeURIComponent(url.searchParams.get('customerId')):'/api/customer-archive-fixtures/live?limit=20&summaryOnly=1';
  if(url.pathname==='/api/p7/live/tasks/directory')return '/api/p7/live/tasks/directory?page=1&pageSize=50';
- if(url.pathname==='/api/p7/live/tasks/detail')return '/api/p7/live/tasks/detail?customerId='+encodeURIComponent(meta.customerId);
+ if(url.pathname==='/api/p7/live/tasks/detail')return '/api/p7/live/tasks/detail?customerId='+encodeURIComponent(url.searchParams.get('customerId')||meta.customerId);
  if(url.pathname==='/api/lifecycle/archive-challenges')return '/api/lifecycle/archive-challenges?customerId='+encodeURIComponent(meta.customerId);
  if(url.pathname==='/api/h5-summary/visual-detection/initial-data')return '/api/h5-summary/visual-detection/initial-data';
  if(url.pathname==='/api/ops-dashboard/pack')return '/api/ops-dashboard/pack?scope=live';
