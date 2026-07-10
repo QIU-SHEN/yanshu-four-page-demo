@@ -1,0 +1,36 @@
+{
+  "testedAt": "2026-07-10T11:13:36.438Z",
+  "publicUrl": "https://qiu-shen.github.io/yanshu-four-page-demo/",
+  "deployCommit": "a7d716d",
+  "steps": [
+    {
+      "name": "home",
+      "status": 200,
+      "url": "https://qiu-shen.github.io/yanshu-four-page-demo/?v=a7d716d",
+      "ok": true
+    },
+    {
+      "name": "lifecycle",
+      "url": "https://qiu-shen.github.io/yanshu-four-page-demo/?v=a7d716d#lifecycle",
+      "ok": true
+    },
+    {
+      "name": "customers",
+      "url": "https://qiu-shen.github.io/yanshu-four-page-demo/?v=a7d716d#customers",
+      "ok": true
+    },
+    {
+      "name": "deepseek-h5-review",
+      "url": "https://qiu-shen.github.io/yanshu-four-page-demo/?v=a7d716d#deepseek-h5-review",
+      "ok": true
+    },
+    {
+      "name": "dashboard",
+      "url": "https://qiu-shen.github.io/yanshu-four-page-demo/ops-dashboard-live.html",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "apiRequests": [],
+  "thirdPartyRequests": []
+}

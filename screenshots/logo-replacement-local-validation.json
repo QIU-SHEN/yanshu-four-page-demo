@@ -1,0 +1,30 @@
+{
+  "testedAt": "2026-07-10T11:21:11.935Z",
+  "checks": [
+    {
+      "label": "index",
+      "count": 2,
+      "demo": 2,
+      "old": []
+    },
+    {
+      "label": "review-and-h5-preview",
+      "count": 5,
+      "demo": 5,
+      "old": []
+    },
+    {
+      "label": "h5-summary-modal",
+      "count": 6,
+      "demo": 6,
+      "old": []
+    },
+    {
+      "label": "dashboard",
+      "count": 1,
+      "demo": 1,
+      "old": []
+    }
+  ],
+  "errors": []
+}

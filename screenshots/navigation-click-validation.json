@@ -1,0 +1,35 @@
+{
+  "testedAt": "2026-07-10T11:04:14.082Z",
+  "startUrl": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/index.html",
+  "steps": [
+    {
+      "name": "profile",
+      "view": "lifecycle",
+      "href": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/index.html#lifecycle",
+      "ok": true,
+      "contains": "林女士"
+    },
+    {
+      "name": "archive",
+      "view": "customers",
+      "href": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/index.html#customers",
+      "ok": true,
+      "contains": "林女士"
+    },
+    {
+      "name": "advisor",
+      "view": "deepseek-h5-review",
+      "href": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/index.html#deepseek-h5-review",
+      "frameUrl": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/review.html?source=p7-live#workspace",
+      "ok": true
+    },
+    {
+      "name": "dashboard",
+      "href": "file://wsl$/Ubuntu-24.04/home/dell/projects/yanshu-ai-customer-ops/%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C/%E5%9B%9B%E9%A1%B5%E5%AE%9E%E7%9B%98%E5%8E%9F%E6%A0%B7%E9%9D%99%E6%80%81%E5%A4%8D%E5%88%BB_20260710/ops-dashboard-live.html",
+      "title": "实盘智能运营DashBoard",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "networkRequests": []
+}

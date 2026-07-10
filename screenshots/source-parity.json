@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-07-10T10:58:56.433Z",
+  "liveSource": "本地前端检查台/non-vip-archive-inspector/public",
+  "exactCopies": [
+    {
+      "file": "styles.css",
+      "sourceSha256": "c956a0a544e493662bc887feb22c43e2fb812925dc4e1d689397e2916a1186a4",
+      "staticSha256": "c956a0a544e493662bc887feb22c43e2fb812925dc4e1d689397e2916a1186a4",
+      "identical": true
+    },
+    {
+      "file": "review.css",
+      "sourceSha256": "ad7e6cb5b365f493fe3eaeda70d61e4d165147d4e2b0ef7ef21a24f422db0dad",
+      "staticSha256": "ad7e6cb5b365f493fe3eaeda70d61e4d165147d4e2b0ef7ef21a24f422db0dad",
+      "identical": true
+    },
+    {
+      "file": "ops-dashboard.css",
+      "sourceSha256": "28d6136da112a4427ccdbe3d27f0d6d02b0b6fd084402ad75748c1fc446a6ef6",
+      "staticSha256": "28d6136da112a4427ccdbe3d27f0d6d02b0b6fd084402ad75748c1fc446a6ef6",
+      "identical": true
+    },
+    {
+      "file": "p7-live.css",
+      "sourceSha256": "3660d386e612ce29fe729a15feccc9446cac69288de46519721427a83aac72a5",
+      "staticSha256": "3660d386e612ce29fe729a15feccc9446cac69288de46519721427a83aac72a5",
+      "identical": true
+    },
+    {
+      "file": "h5-summary-modal.css",
+      "sourceSha256": "1143ed1b977cdd781db20f4cd210a234af725a44ff641e3ef5e2412de3f0e2dc",
+      "staticSha256": "1143ed1b977cdd781db20f4cd210a234af725a44ff641e3ef5e2412de3f0e2dc",
+      "identical": true
+    },
+    {
+      "file": "lifecycle-agent-renderers.css",
+      "sourceSha256": "1ea6c8d1f63f5647554115e4529143d2b7e4eabdebd2e488d52bcc22013d2804",
+      "staticSha256": "1ea6c8d1f63f5647554115e4529143d2b7e4eabdebd2e488d52bcc22013d2804",
+      "identical": true
+    },
+    {
+      "file": "ops-dashboard-live.js",
+      "sourceSha256": "d0fb926549e210e9fa5235328a440fd627cf09f80cd32a6932d491a7a3b03cbf",
+      "staticSha256": "d0fb926549e210e9fa5235328a440fd627cf09f80cd32a6932d491a7a3b03cbf",
+      "identical": true
+    },
+    {
+      "file": "p7-live-common.js",
+      "sourceSha256": "13e62aa28005a52ef7de759713d700edf1519af39e08935827f2c452389d786e",
+      "staticSha256": "13e62aa28005a52ef7de759713d700edf1519af39e08935827f2c452389d786e",
+      "identical": true
+    },
+    {
+      "file": "lifecycle-agent-renderers.js",
+      "sourceSha256": "6f9e38ca54d1676140a778ec598dfc14ecb36246b51426cfab26eb2c6f3f5416",
+      "staticSha256": "6f9e38ca54d1676140a778ec598dfc14ecb36246b51426cfab26eb2c6f3f5416",
+      "identical": true
+    }
+  ],
+  "adaptedFiles": [
+    {
+      "file": "index.html",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "app.js",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "review.html",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "review.js",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "ops-dashboard-live.html",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "h5-review-kit.js",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    },
+    {
+      "file": "h5-summary-modal.js",
+      "reason": "仅相对资源路径、四页导航、默认实盘模式或本地数据适配"
+    }
+  ],
+  "generatedFiles": [
+    "static-api-data.js",
+    "static-fetch-adapter.js",
+    "README.md",
+    "screenshots/validation.json"
+  ],
+  "safetyBoundary": {
+    "automaticSendAllowed": false,
+    "customerFacingPublishAllowed": false,
+    "remoteWriteAllowed": false
+  }
+}

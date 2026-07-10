@@ -1,0 +1,97 @@
+{
+  "openedAt": "2026-07-10T10:49:18.730Z",
+  "pages": {
+    "archive": {
+      "title": "非 VIP 老客档案库检查台",
+      "checks": [
+        {
+          "selector": "#customer-list",
+          "text": "林**",
+          "found": true,
+          "sample": "林**\n        HIS_DEMO_001\n        用户全景档案规则直抽｜文件指定客户\n        按修改优先级（红绿灯）：核验绿灯\n        \n          RFM D\n          粉星\n          核验绿灯"
+        },
+        {
+          "selector": "#customer-detail",
+          "text": "林女士",
+          "found": true,
+          "sample": "林女士\n            138****0000\n          \n          HIS_DEMO_001\n          \n        \n        \n    \n      修改档案\n      \n    \n  \n      \n      \n        \n    \n      门店\n "
+        }
+      ],
+      "errors": [],
+      "networkRequests": [],
+      "dimensions": {
+        "width": 1440,
+        "height": 950
+      }
+    },
+    "profile": {
+      "title": "非 VIP 老客档案库检查台",
+      "checks": [
+        {
+          "selector": "#ai-insight-customer-list",
+          "text": "林女士",
+          "found": true,
+          "sample": "林女士 · RFM D\n        复诊逾期 280 天\n        \n          类型 治疗型客户\n          阶段 流失期"
+        },
+        {
+          "selector": "#ai-insight-detail",
+          "text": "林女士",
+          "found": true,
+          "sample": "证据推理链路 · 策略中心\n        林女士｜策略中心\n        \n          \n            \n              客户身份\n              林女士，35岁，粉星会员；来源和身份以全景档案为准。\n            \n          \n            "
+        }
+      ],
+      "errors": [],
+      "networkRequests": [],
+      "dimensions": {
+        "width": 1440,
+        "height": 3706
+      }
+    },
+    "advisor": {
+      "title": "顾问任务&H5审核",
+      "checks": [
+        {
+          "selector": "#task-list",
+          "text": "林女士",
+          "found": true,
+          "sample": "林女士\n          待顾问审核\n        \n      \n    \n      \n        已加载 1 / 1 人"
+        },
+        {
+          "selector": "#task-card-detail",
+          "text": "林女士",
+          "found": true,
+          "sample": "DS H5 REVIEW · L05\n        林女士 · 顾问任务卡与 H5 发布审核样板\n        治疗型客户 × 流失期｜维养节奏中断唤醒\n      \n      \n        样板\n        待顾问审核\n        顾问可反馈\n        不真实发送\n      \n    \n\n "
+        }
+      ],
+      "errors": [],
+      "networkRequests": [],
+      "dimensions": {
+        "width": 1522,
+        "height": 2457
+      }
+    },
+    "dashboard": {
+      "title": "实盘智能运营DashBoard",
+      "checks": [
+        {
+          "selector": "body",
+          "text": "智能运营DashBoard",
+          "found": true,
+          "sample": "实盘智能运营DashBoard\n            capture_source=p7_live_pipeline\n          \n        \n\n        \n          4.1 数据看板\n          4.2 数据质量\n          4.3 策略评估\n          4.5"
+        },
+        {
+          "selector": "body",
+          "text": "数据质量",
+          "found": true,
+          "sample": "实盘智能运营DashBoard\n            capture_source=p7_live_pipeline\n          \n        \n\n        \n          4.1 数据看板\n          4.2 数据质量\n          4.3 策略评估\n          4.5"
+        }
+      ],
+      "errors": [],
+      "networkRequests": [],
+      "dimensions": {
+        "width": 1440,
+        "height": 1513
+      }
+    }
+  }
+}

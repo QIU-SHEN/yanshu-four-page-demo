@@ -2,6 +2,12 @@
 
 本目录直接复用 2026-07-10 当前实盘页面的 HTML、CSS、JavaScript 和共享组件，不是重新设计或同风格重画。
 
+公网地址：<https://qiu-shen.github.io/yanshu-four-page-demo/>
+
+部署仓库：<https://github.com/QIU-SHEN/yanshu-four-page-demo>
+
+公开静态版已移除颜术 Logo，首页、顾问页、Dashboard 和 H5 相关组件统一使用中性 `DEMO` 文字标识。
+
 ## 打开方式
 
 直接双击 **index.html**。左侧只保留四个交付入口：
