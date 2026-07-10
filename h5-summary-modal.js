@@ -169,7 +169,7 @@
       '  <div class="h5-summary-body">' +
       '    <div class="h5-summary-preview">' +
       '      <div class="h5-summary-phone">' +
-      '        <div class="h5-summary-phone-topbar"><span><img src="./assets/yesskin-logo.png" alt="YESSKIN" /></span><span>STEP 01 / 01</span></div>' +
+      '        <div class="h5-summary-phone-topbar"><span><img src="./assets/demo-wordmark.svg" alt="DEMO" /></span><span>STEP 01 / 01</span></div>' +
       '        <div class="h5-summary-phone-body" id="h5-summary-preview-body"></div>' +
       '        <div class="h5-summary-phone-footer">Privacy Policy · Terms</div>' +
       '      </div>' +
@@ -525,7 +525,7 @@
     return '' +
       '<article class="h5-final-page h5-final-one h5-vd-final-card">' +
       '  <header class="h5-final-nav h5-vd-final-nav">' +
-      '    <strong><img class="h5-final-logo" src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></strong>' +
+      '    <strong><img class="h5-final-logo" src="./assets/demo-wordmark.svg" alt="DEMO" /></strong>' +
       '  </header>' +
       '  <section class="h5-final-hero h5-vd-report-hero">' +
       '    <h2>' + renderReportTitle(vd.reportTitle || buildReportTitle(cskin.detectedAt || '')) + '</h2>' +
@@ -561,7 +561,7 @@
     var tr = copy || {};
     return '' +
       '<div class="h5-tr-page">' +
-      '  <header class="h5-final-nav"><strong><img src="./assets/yesskin-logo.png" alt="YESSKIN" style="height:16px"/></strong><span>STEP 01 / 01</span></header>' +
+      '  <header class="h5-final-nav"><strong><img src="./assets/demo-wordmark.svg" alt="DEMO" style="height:16px"/></strong><span>STEP 01 / 01</span></header>' +
       '  <section class="h5-tr-hero"><h2>' + esc(tr.mainTitle) + '</h2><p>' + esc(tr.subTitle) + '</p></section>' +
       '  <div class="h5-tr-summary"><p>' + esc(tr.currentStatusSummary) + '</p></div>' +
       '  <div class="h5-tr-signals">' + safeArray(tr.observedSignals).map(function (item) {
@@ -579,7 +579,7 @@
     var plan = copy || {};
     return '' +
       '<div class="h5-lap-page">' +
-      '  <header class="h5-final-nav"><strong><img src="./assets/yesskin-logo.png" alt="YESSKIN" style="height:16px"/></strong><span>STEP 01 / 01</span></header>' +
+      '  <header class="h5-final-nav"><strong><img src="./assets/demo-wordmark.svg" alt="DEMO" style="height:16px"/></strong><span>STEP 01 / 01</span></header>' +
       '  <section class="h5-lap-hero"><h2>' + esc(plan.mainTitle) + '</h2><p>' + esc(plan.subTitle) + '</p></section>' +
       '  <div class="h5-lap-status"><p>' + esc(plan.oneSentenceStatus) + '</p></div>' +
       '  <div class="h5-lap-points">' + safeArray(plan.observationPoints).map(function (item, index) {
@@ -856,7 +856,7 @@
   function prepareForeignObjectClone(clone) {
     $$('img', clone).forEach(function (img) {
       var replacement = document.createElement('span');
-      replacement.textContent = img.getAttribute('alt') || 'YESSKIN 颜术';
+      replacement.textContent = img.getAttribute('alt') || 'DEMO';
       replacement.setAttribute('style', img.getAttribute('style') || '');
       replacement.style.display = replacement.style.display || 'inline-flex';
       replacement.style.alignItems = 'center';

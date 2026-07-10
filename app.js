@@ -9884,7 +9884,7 @@ function renderDeepSeekH5Phone(run) {
   return `
     <div class="ds-h5-phone">
       <div class="ds-h5-phone-top">
-        <span><img class="ds-h5-logo" src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></span>
+        <span><img class="ds-h5-logo" src="./assets/demo-wordmark.svg" alt="DEMO" /></span>
         <b>${escapeHtml(first.step || 'STEP 01 / 03')}</b>
       </div>
       <h3>${escapeHtml(first.title || '这次提醒，和你的维养节奏有关')}</h3>

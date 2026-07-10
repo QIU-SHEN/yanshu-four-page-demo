@@ -157,7 +157,7 @@
   }
 
   function h5LogoMarkup() {
-    return '<img class="h5-final-logo" src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" />';
+    return '<img class="h5-final-logo" src="./assets/demo-wordmark.svg" alt="DEMO" />';
   }
 
   function detailIdForCta(screen, pageIndex) {

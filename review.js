@@ -5431,7 +5431,7 @@ function h5TitleMarkup(title, fallback) {
 }
 
 function h5LogoMarkup() {
-  return '<img class="h5-final-logo" src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" />';
+  return '<img class="h5-final-logo" src="./assets/demo-wordmark.svg" alt="DEMO" />';
 }
 
 // CSKIN_RADAR_AXES / GENERIC_CSKIN_ESTIMATE / GENERIC_H5_DETAIL_CARDS moved to H5ReviewKit.
