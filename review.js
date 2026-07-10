@@ -4132,7 +4132,7 @@ function advisorH5CustomerFacts(taskCard, archive, review) {
     isChen,
     customerName: basic.customerName || archive.customerName || review.customerName || '客户',
     maskedCustomerId: basic.maskedCustomerId || archive.customerId || review.unifiedCustomerId || '待补',
-    clinic: valueWithFallback(basic.clinic, isChen ? '杭州新芽医疗美容诊所' : '待接入'),
+    clinic: valueWithFallback(basic.clinic, isChen ? '****诊所' : '待接入'),
     doctor: valueWithFallback(basic.doctor, '待补'),
     advisor: valueWithFallback(basic.advisor, archive.advisorWecomBinding?.advisorName, '待补'),
     age: valueWithFallback(basic.age, extractAge(taskCard.personalProfileBrief), isChen ? '52 岁' : '待接入'),

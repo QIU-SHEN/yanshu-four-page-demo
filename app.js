@@ -1001,11 +1001,11 @@ const CUSTOMER_CLASSIFY_OPTIONS = [
 ];
 
 const CUSTOMER_ALLOWED_CLINIC_NAMES = [
-  '杭州新芽医疗美容诊所',
-  '杭州悦容医疗美容诊所',
-  '杭州时尚医疗美容诊所',
-  '上海高得医疗美容门诊部',
-  '杭州素颜丰潭医疗美容诊所',
+  '****诊所',
+  '****诊所',
+  '****诊所',
+  '****诊所',
+  '****诊所',
 ];
 
 const CUSTOMER_REVIEW_DIAGNOSTIC_SECTION_ORDERS = new Set([6, 7, 8, 9, 10, 11, 15]);
@@ -2451,11 +2451,11 @@ const CUSTOMER_COMPREHENSIVE_CHAPTER_SUMMARIES = [
   },
   {
     pattern: /^三、到访与分诊/,
-    summary: '客户已到店，命中 1 条 2026-01-05 16:57:30 的杭州新芽医疗美容诊所到访记录，状态为 Status=1、TreatmentStatus=1、ConsultStatus=0、IsTriage=0。该到访未关联预约，未记录咨询师和护士；到访登记医生为祝媛园，医生病历医生为杨慧。TreatmentBeginTime=2026-01-05 16:58:00 表明已进入就诊页面，但分诊未完成或未记录完成，并可推断为新客到访。',
+    summary: '客户已到店，命中 1 条 2026-01-05 16:57:30 的****诊所到访记录，状态为 Status=1、TreatmentStatus=1、ConsultStatus=0、IsTriage=0。该到访未关联预约，未记录咨询师和护士；到访登记医生为祝媛园，医生病历医生为杨慧。TreatmentBeginTime=2026-01-05 16:58:00 表明已进入就诊页面，但分诊未完成或未记录完成，并可推断为新客到访。',
   },
   {
     pattern: /^四、新客基础信息/,
-    summary: '新客基础信息显示客户约 52 岁，来源为客户推荐/老带新，所属诊所为杭州新芽医疗美容诊所。医生链路仍为客户主表医生杨慧、病历医生杨慧、到访登记医生祝媛园，初诊时间为 2026-01-05。结构化皮肤评分未命中，但医生病历有皮肤问题文本；基础健康和生活习惯中 Smoke=0、Pregnancy=0、FeedBaby=0，客户主表相关健康字段未填，病历否认药物过敏、传染病、手术外伤和遗传性疾病家族史。',
+    summary: '新客基础信息显示客户约 52 岁，来源为客户推荐/老带新，所属诊所为****诊所。医生链路仍为客户主表医生杨慧、病历医生杨慧、到访登记医生祝媛园，初诊时间为 2026-01-05。结构化皮肤评分未命中，但医生病历有皮肤问题文本；基础健康和生活习惯中 Smoke=0、Pregnancy=0、FeedBaby=0，客户主表相关健康字段未填，病历否认药物过敏、传染病、手术外伤和遗传性疾病家族史。',
   },
   {
     pattern: /^五、咨询(?:记录|与 AI 听诊)/,
@@ -2707,7 +2707,7 @@ const CUSTOMER_EVIDENCE_TYPES = [
   { key: 'pending', label: '待确认', className: 'is-pending-evidence' },
 ];
 
-const CUSTOMER_SUMMARY_HIGHLIGHT_RE = /(陈喜生|RFM\s*[A-Z]|粉星|黄褐斑|日光性黑子|面部皮肤松弛|皮秒激光|美塑疗法|CSKIN|企微|SUCCESS|已付款|无欠费|无余额|客户推荐\/老带新|杭州新芽医疗美容诊所|杨慧|陈曦|祝媛园|未命中|未找到|无法填写|待确认|1 月后复诊|划扣|消耗|客诉|理赔|退款|积分|推荐关系|医生病历|补注射|超皮秒|消炎水光|大师霜|神经酰胺霜|\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2}:\d{2})?|\d+(?:\.\d{2})?)/g;
+const CUSTOMER_SUMMARY_HIGHLIGHT_RE = /(陈喜生|RFM\s*[A-Z]|粉星|黄褐斑|日光性黑子|面部皮肤松弛|皮秒激光|美塑疗法|CSKIN|企微|SUCCESS|已付款|无欠费|无余额|客户推荐\/老带新|****诊所|杨慧|陈曦|祝媛园|未命中|未找到|无法填写|待确认|1 月后复诊|划扣|消耗|客诉|理赔|退款|积分|推荐关系|医生病历|补注射|超皮秒|消炎水光|大师霜|神经酰胺霜|\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2}:\d{2})?|\d+(?:\.\d{2})?)/g;
 
 function cleanMdChapterTitle(title = '') {
   return String(title || '').replace(/==.*?==/g, '').trim();
@@ -6322,7 +6322,7 @@ function renderChenLifecycleAgentAnalysis(analysis) {
     : [
         { label: '客户身份', text: '陈喜生，约 52 岁，粉星会员；来源为客户推荐 / 老带新。' },
         { label: '非 VIP 前置', text: 'RFM 等级 C；R=90-180 天，F=1 次，M=2K-10K，场景一非 VIP 前置通过。' },
-        { label: '机构与医生', text: '门店为杭州新芽医疗美容诊所；客户主表所属医生和病历医生为杨慧，到访登记医生为祝媛园。' },
+        { label: '机构与医生', text: '门店为****诊所；客户主表所属医生和病历医生为杨慧，到访登记医生为祝媛园。' },
       ];
   const preservedAgentDimensions = [
     {
