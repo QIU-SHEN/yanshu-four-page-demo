@@ -95,7 +95,7 @@
   var iconSvg = RK ? RK.iconSvg : function () { return ''; };
   var renderRadarBlock = RK ? RK.renderCskinRadarBlock : function () { return ''; };
   var renderTimeline = RK ? RK.renderTreatmentTimelineSvg : function () { return ''; };
-  var h5Footer = RK ? RK.h5Footer : function () { return '<footer class="h5-summary-generated-footer">由顾问为您整理 · 颜术</footer>'; };
+  var h5Footer = RK ? RK.h5Footer : function () { return '<footer class="h5-summary-generated-footer">由顾问为您整理 · </footer>'; };
   var html2canvasLoadPromise = null;
   var skinTypeAnalysisCache = new Map();
 

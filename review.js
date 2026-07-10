@@ -1958,7 +1958,7 @@ function defaultSendScriptForAngle(taskCard, angle, reviewItemId = state.selecte
   const ctx = advisorH5MockContext(taskCard, reviewItemId);
   const key = angleKeyText(angle);
   if (angleIndex === 0 || /doctor_cycle_followup|ANGLE_01|医生建议周期|复诊周期|医生复盘|医生复诊|复诊提醒/.test(key)) {
-    return `${ctx.salutation}您好，我是颜术的${ctx.advisorName}。上次记录的方案是${ctx.planName}，现在想先问问您近期皮肤状态怎么样。方便的话我帮您整理给${ctx.doctorName}看一下。`;
+    return `${ctx.salutation}您好，我是的${ctx.advisorName}。上次记录的方案是${ctx.planName}，现在想先问问您近期皮肤状态怎么样。方便的话我帮您整理给${ctx.doctorName}看一下。`;
   }
   if (angleIndex === 1 || /summer_uv_spot_management|ANGLE_02|夏季|紫外线|色斑管理|季节变化|皮肤管理/.test(key)) {
     return `${ctx.salutation}您好，最近皮肤状态容易受气候、作息和护理节奏影响。我这边不直接推项目，先想了解您最近干燥、泛红或稳定度有没有变化，方便的话我帮您记录后给医生复盘。`;
@@ -2410,7 +2410,7 @@ function advisorLocalSummaryForField(fieldKey, rawData, fallbackSummary) {
     const amount = text.match(/(?:消耗总金额|总金额|金额|累计消费|消费)[^0-9]{0,8}([0-9]+(?:\.[0-9]+)?\s*(?:元|万)?)/);
     const prefix = /面部|抗衰|年轻化|法令|泪沟|松弛|轮廓|支撑/.test(text)
       ? '曾做面部年轻化管理'
-      : '曾做颜术项目管理';
+      : '曾做项目管理';
     return amount ? `${prefix}，消耗总金额${amount[1]}。` : (fallbackText || `${prefix}，包含待顾问核验历史方案和最近服务记录。`);
   }
   if (fieldKey === '咨询记录') {
@@ -2514,7 +2514,7 @@ function advisorScriptConsumptionSummary(context = {}) {
     hasPhoto ? '光电维养' : '',
     hasSupport ? '面部支撑相关项目' : '',
   ].filter(Boolean);
-  const prefix = hasFace || hasSupport ? '曾做面部年轻化管理' : '曾做颜术项目管理';
+  const prefix = hasFace || hasSupport ? '曾做面部年轻化管理' : '曾做项目管理';
   const categoryText = categories.length ? `，包含${categories.join('和')}` : (projectText ? `，包含${projectText.replace(/\s+/g, ' ').slice(0, 36)}` : '');
   return [prefix + categoryText, amountText].filter(Boolean).join('，') || rawText;
 }
@@ -2968,7 +2968,7 @@ function buildAdvisorScriptRequestPayload(review, archive, taskCard, angleIndex,
     sourceMode: reviewSourceMode,
     campaignOfferText,
     campaign: {
-      serviceRole: '颜术VIP服务经理',
+      serviceRole: 'VIP服务经理',
       expertName: '宋为民',
       anniversaryLabel: sceneText,
       campaignOfferText,
@@ -3144,7 +3144,7 @@ function advisorScriptPromptPreviewPayload(review, archive, taskCard) {
       总结字段规则: advisorScriptSummaryRulesSnapshot(),
     },
     campaignJson: {
-      serviceRole: '颜术VIP服务经理',
+      serviceRole: 'VIP服务经理',
       expertName: '宋为民',
       sceneText: inputs.sceneText || '15周年活动',
       purposeText: inputs.purposeText || ADVISOR_SCRIPT_PURPOSE_OPTIONS[0].value,
@@ -3187,7 +3187,7 @@ function advisorScriptDefaultPromptText(purposeText = '') {
       `语气要求：${advisorScriptToneGuidanceForPurpose(purposeText)}`,
       '动作链路：简短说明身份 -> 说明档案交接/便于发送复诊安排 -> 礼貌请求通过好友。',
       '禁止：不要直接问“哪天方便到店”，不要写长段邀约，不要制造紧迫感，不要把关系写得像已经是企微好友。',
-      '参考语气：您好，我是颜术这边的服务经理，近期接手到您的档案，想加您企微方便后续同步复诊安排和礼遇信息，方便的话麻烦通过一下。',
+      '参考语气：您好，我是这边的服务经理，近期接手到您的档案，想加您企微方便后续同步复诊安排和礼遇信息，方便的话麻烦通过一下。',
     ]
     : [
       '当前目的：已有好友询问话术。',
@@ -3201,7 +3201,7 @@ function advisorScriptDefaultPromptText(purposeText = '') {
     ? [
       '生成框架（无企微好友添加）：',
       '1. 简短礼貌问候：用“您好”或“X先生/女士您好”，不要显得冒昧。',
-      '2. 身份说明：一句话说明“我是颜术VIP服务经理/这边做档案交接”。',
+      '2. 身份说明：一句话说明“我是VIP服务经理/这边做档案交接”。',
       '3. 添加理由：只写“方便同步复诊安排/礼遇信息/后续沟通”，不要展开治疗项目。',
       '4. 礼貌收尾：用“方便的话麻烦通过一下”“不方便也没关系”这类有选择感的表达。',
       `5. 输出长度：${advisorScriptWordLimitForPurpose(purposeText)}`,
@@ -5420,7 +5420,7 @@ function iconSvg(name) {
 function h5Footer() {
   return `
     <footer class="h5-footer">
-      <div>${iconSvg('verified_user')}<span>由顾问为您整理 · 颜术</span></div>
+      <div>${iconSvg('verified_user')}<span>由顾问为您整理 · </span></div>
       <small>Privacy Policy · Terms</small>
     </footer>
   `;
@@ -5775,7 +5775,7 @@ function renderAuditChecklist() {
   const sendGate = selectedSendGate();
   const archive = selectedArchive();
   const checks = [
-    ['check-brand', '品牌与视觉边界', '完整使用 YESSKIN / 颜术识别，颜色保持 Mint / Sea Foam / White / Silver / Black，并遵守 logo 安全区。', true],
+    ['check-brand', '品牌与视觉边界', '完整使用 YESSKIN / 识别，颜色保持 Mint / Sea Foam / White / Silver / Black，并遵守 logo 安全区。', true],
     ['check-project-book', '项目书五步法', '已完成识别客户、生命周期诊断、互动目标、任务卡/H5、反馈学习入口五步审核。', Boolean(archive)],
     ['check-customer', '客户可见边界', 'H5 不展示 RFM、机会分、风险灯、黄灯、A/B、敏感正文、消费金额或内部标签。', true],
     ['check-copy', '文案风险检查', '无疗效承诺、医疗诊断、强销售、预约诱导或自动发送表述。', true],

@@ -1094,7 +1094,7 @@ function getCustomerReviewRedIssues(fixture) {
   if (Number.isFinite(age) && age > 70) issues.push(customerReviewIssue('red', 'identity', 'age', '年龄', `${age} 岁大于 70 岁`));
 
   const clinicName = getCustomerReviewClinicName(fixture);
-  if (clinicName && !CUSTOMER_ALLOWED_CLINIC_NAMES.includes(clinicName)) issues.push(customerReviewIssue('red', 'identity', 'clinic', '门店', `不在当前颜术门店白名单：${clinicName}`));
+  if (clinicName && !CUSTOMER_ALLOWED_CLINIC_NAMES.includes(clinicName)) issues.push(customerReviewIssue('red', 'identity', 'clinic', '门店', `不在当前门店白名单：${clinicName}`));
 
   const spendingMap = getCustomerReviewSpendingMap(fixture);
   CUSTOMER_REVIEW_REQUIRED_SPENDING_KEYS.forEach(([key, label]) => {
@@ -9897,7 +9897,7 @@ function renderDeepSeekH5Phone(run) {
       </div>
       <div class="ds-h5-phone-notice">${escapeHtml(first.notice || taskCard.advisorSendScript?.sendBoundary || '本次只做状态观察，不直接推荐复杂项目。')}</div>
       <button type="button">${escapeHtml(first.detailEntry || '查看为什么现在值得关注')} →</button>
-      <small>由顾问为您整理 · 颜术</small>
+      <small>由顾问为您整理 · </small>
       <div class="ds-h5-phone-tabs">
         ${screens.map((screen, index) => `<span class="${index === 0 ? 'is-active' : ''}">${String(index + 1).padStart(2, '0')}</span>`).join('')}
       </div>

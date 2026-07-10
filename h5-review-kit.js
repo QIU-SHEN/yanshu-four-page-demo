@@ -146,7 +146,7 @@
   function h5Footer() {
     return `
       <footer class="h5-footer">
-        <div>${iconSvg('verified_user')}<span>由顾问为您整理 · 颜术</span></div>
+        <div>${iconSvg('verified_user')}<span>由顾问为您整理 · </span></div>
         <small>Privacy Policy · Terms</small>
       </footer>
     `;

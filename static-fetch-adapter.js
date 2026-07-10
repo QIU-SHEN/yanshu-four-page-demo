@@ -16,7 +16,7 @@ function keyFor(url){
 }
 function local(path,init){var raw={};try{raw=JSON.parse(init&&init.body||'{}')}catch(e){}
  if(path==='/api/backend/advisor-script/field-summaries')return {ok:true,summary:'敏感屏障型',summarySource:'static_replay',modelCall:{status:'static_replay',outputAccepted:true},safetyBoundary:gate};
- if(path==='/api/backend/advisor-script/runs'||path==='/api/backend/advisor-script/revisions')return {ok:true,runId:'STATIC_C5_REPLAY',run:{runId:'STATIC_C5_REPLAY',output:{advisorScript:{finalScriptText:'林女士您好，我是颜术顾问。想温和关心一下您最近的肤况和护理节奏；如果方便，您可以告诉我近期感受，我先帮您整理，再由顾问和医生一起判断是否需要安排复盘。'}}},safetyBoundary:gate};
+ if(path==='/api/backend/advisor-script/runs'||path==='/api/backend/advisor-script/revisions')return {ok:true,runId:'STATIC_C5_REPLAY',run:{runId:'STATIC_C5_REPLAY',output:{advisorScript:{finalScriptText:'林女士您好，我是顾问。想温和关心一下您最近的肤况和护理节奏；如果方便，您可以告诉我近期感受，我先帮您整理，再由顾问和医生一起判断是否需要安排复盘。'}}},safetyBoundary:gate};
  if(path==='/api/h5-summary/images'){var image=raw.imageBase64||'';return {ok:true,data:{id:'STATIC_H5_IMAGE',downloadUrl:image,imageBase64:image},safetyBoundary:gate}}
  if(path==='/api/backend/advisor-script/prompt-source')return {ok:true,promptText:'静态演示沿用当前 C5 顾问话术提示词框架；所有生成均为本地回放。',source:'static_replay',safetyBoundary:gate};
  return {ok:true,status:'static_replay',message:'静态演示已在本地记录；未连接真实服务。',data:raw,safetyBoundary:gate,gates:gate}

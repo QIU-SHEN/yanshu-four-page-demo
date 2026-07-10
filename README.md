@@ -6,7 +6,7 @@
 
 部署仓库：<https://github.com/QIU-SHEN/yanshu-four-page-demo>
 
-公开静态版已移除颜术 Logo，首页、顾问页、Dashboard 和 H5 相关组件统一使用中性 `DEMO` 文字标识。
+公开静态版已移除 Logo，首页、顾问页、Dashboard 和 H5 相关组件统一使用中性 `DEMO` 文字标识。
 
 ## 打开方式
 
