@@ -25,7 +25,8 @@ function local(path,init){var raw={};try{raw=JSON.parse(init&&init.body||'{}')}c
 window.fetch=function(input,init){var raw=typeof input==='string'?input:(input&&input.url)||'',url;try{url=new URL(raw,location.href)}catch(e){return res({ok:false,error:'invalid_static_url'},400)}
  var method=String((init&&init.method)||(input&&input.method)||'GET').toUpperCase();
  if(url.pathname.startsWith('/api/')){if(method!=='GET')return res(local(url.pathname,init));var key=keyFor(url);if(key&&Object.prototype.hasOwnProperty.call(fixtures,key))return res(fixtures[key]);if(url.pathname==='/api/backend/advisor-script/prompt-source')return res(local(url.pathname,init));return res({ok:true,items:[],events:[],message:'静态演示未连接真实接口。',safetyBoundary:gate,gates:gate})}
- if(url.protocol==='file:'||url.origin===location.origin||url.protocol==='data:'||url.protocol==='blob:')return originalFetch(input,init);
+ if(url.protocol==='file:')return res({ok:false,error:'static_file_fetch_blocked',message:'离线文件模式已跳过本地 fetch；请确认静态包文件完整。'},404);
+ if(url.origin===location.origin||url.protocol==='data:'||url.protocol==='blob:')return originalFetch(input,init).catch(function(){return res({ok:false,error:'static_local_fetch_failed',message:'本地静态资源读取失败。'},404)});
  return res({ok:false,error:'static_network_blocked',message:'静态演示禁止访问网络。'},404)
 };
 })();
