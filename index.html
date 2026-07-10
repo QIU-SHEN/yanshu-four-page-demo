@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>非 VIP 老客档案库检查台</title>
+    <link rel="stylesheet" href="./styles.css?v=202607020939" />
+    <link rel="stylesheet" href="./lifecycle-agent-renderers.css" />
+    <link rel="stylesheet" href="./h5-summary-modal.css?v=202607090112" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark"><img src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></div>
+          <div>
+            <h1>非 VIP 老客档案库</h1>
+            <p id="db-subtitle">读取中</p>
+          </div>
+        </div>
+        <div class="search-block">
+          <label for="global-search">全库搜索</label>
+          <div class="search-row">
+            <input id="global-search" type="search" placeholder="客户ID、标签、信息点、字段值" />
+            <button id="global-search-button" title="搜索">⌕</button>
+          </div>
+        </div>
+        <nav class="nav-tabs">
+          <button class="nav-button is-active" data-view="customers">用户全景档案</button>
+          <button class="nav-button" data-view="lifecycle">用户画像分析</button>
+          <button class="nav-button" data-view="deepseek-h5-review">顾问任务&H5审核</button>
+          <a class="nav-link" href="./ops-dashboard-live.html">智能运营DashBoard</a>
+        </nav>
+        <div class="sidebar-footer">
+          <span id="health-dot"></span>
+          <span id="health-text">连接中</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section id="overview" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">SCENE_1_SKIN_MAINTENANCE_RHYTHM_INTERRUPTED</p>
+              <h2>筛选结果与数据完整性</h2>
+            </div>
+            <button id="refresh-button" class="secondary-button">刷新</button>
+          </div>
+          <div id="kpi-grid" class="kpi-grid"></div>
+          <section class="panel ds-migration-overview">
+            <div class="panel-title">DS 抽取迁入统计</div>
+            <div id="ds-migration-overview" class="ds-migration-overview-grid"></div>
+          </section>
+          <div class="analysis-grid">
+            <section class="panel">
+              <div class="panel-title">信息点状态</div>
+              <div id="status-chart" class="bar-chart"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-title">RFM 分布</div>
+              <div id="rfm-chart" class="bar-chart"></div>
+            </section>
+            <section class="panel wide">
+              <div class="panel-title">confirm 章节目录</div>
+              <div id="section-chart" class="section-grid"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="lifecycle" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">LIFECYCLE INTERACTION ENGINE</p>
+              <h2>用户画像分析｜策略中心</h2>
+            </div>
+            <div class="page-head-actions">
+              <button id="open-profile-strategy-sync" class="secondary-button" type="button">同步</button>
+              <button id="reload-lifecycle" class="secondary-button" type="button">重载</button>
+            </div>
+          </div>
+          <section id="profile-strategy-methodology-root" class="profile-strategy-methodology-root"></section>
+          <section class="panel wide ai-insight-panel">
+            <div class="ai-insight-title-row">
+              <div>
+                <div class="panel-title">分类证据矩阵｜策略有效性检查</div>
+              </div>
+              <span id="ai-insight-status" class="status-chip is-indexed">读取中</span>
+            </div>
+            <div id="ai-insight-blocker" class="ai-insight-blocker"></div>
+            <div id="ai-insight-summary" class="ai-insight-summary"></div>
+            <div class="ai-insight-workbench">
+              <aside id="ai-insight-customer-list" class="ai-insight-customer-list"></aside>
+              <section id="ai-insight-detail" class="ai-insight-detail"></section>
+            </div>
+          </section>
+        </section>
+
+        <section id="methodology" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">YESSKIN OPERATING METHOD</p>
+              <h2>全流程方法论</h2>
+            </div>
+            <button id="reload-methodology" class="secondary-button">重载</button>
+          </div>
+          <section id="standalone-methodology-root" class="profile-strategy-methodology-root"></section>
+        </section>
+
+        <section id="ds-profile-analysis" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">DEEPSEEK INTERNAL PROFILE ANALYSIS</p>
+              <h2>DS 用户画像分析</h2>
+            </div>
+            <div class="ds-operation-panel">
+              <div id="ds-profile-operation-log" class="ds-operation-log" aria-live="polite">DS 画像：待命</div>
+              <div class="inline-controls">
+                <button id="refresh-ds-profile-analysis" class="secondary-button">刷新</button>
+                <button id="open-ds-profile-batch" class="primary-button">选择客户生成/更新 DS 画像</button>
+              </div>
+            </div>
+          </div>
+          <section class="panel wide ai-insight-panel">
+            <div class="ai-insight-title-row">
+              <div>
+                <div class="panel-title">数据库分析 Agent｜AI 画像与证据链</div>
+                <p>基于 Ds全景档案 的同规格标题和证据包，由 DS LLM 生成内部画像分析；本页仅用于内部研判和人工复核。</p>
+              </div>
+              <span id="ds-profile-status" class="status-chip is-indexed">读取中</span>
+            </div>
+            <div id="ds-profile-blocker" class="ai-insight-blocker"></div>
+            <div id="ds-profile-summary" class="ai-insight-summary"></div>
+            <div class="ai-insight-workbench">
+              <aside id="ds-profile-customer-list" class="ai-insight-customer-list"></aside>
+              <section id="ds-profile-detail" class="ai-insight-detail"></section>
+            </div>
+          </section>
+        </section>
+
+        <section id="deepseek-h5-review" class="view">
+          <iframe
+            class="embedded-review-frame"
+            title="顾问任务&H5审核"
+            src="./review.html?source=p7-live#workspace"
+          ></iframe>
+        </section>
+
+        <section id="ds-advisor-h5-review" class="view">
+          <iframe
+            class="embedded-review-frame"
+            title="Ds顾问任务&H5审核"
+            src="./review.html?source=ds-advisor-h5#workspace"
+          ></iframe>
+        </section>
+
+        <section id="rule-workbench" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">DS RULE WORKBENCH</p>
+              <h2>规则工作台</h2>
+            </div>
+            <div class="inline-controls">
+              <button id="refresh-rule-workbench" class="secondary-button">刷新</button>
+              <button id="save-rule-workbench" class="primary-button">保存当前规则</button>
+            </div>
+          </div>
+          <section class="panel wide rule-workbench-overview">
+            <div class="ai-insight-title-row">
+              <div>
+                <div class="panel-title">DS 规则控制台</div>
+                <p>集中管理引导 Ds全景档案、DS 用户画像分析、Ds顾问任务&H5审核生成的模板、证据链、H5 内容、视觉提示和门禁规则。</p>
+              </div>
+              <span id="rule-workbench-status" class="status-chip is-pending">读取中</span>
+            </div>
+            <div id="rule-workbench-summary" class="rule-workbench-summary"></div>
+          </section>
+          <div class="rule-workbench-layout">
+            <aside class="panel rule-workbench-sidebar">
+              <div class="panel-title">规则列表</div>
+              <div id="rule-workbench-categories" class="rule-workbench-categories"></div>
+              <div id="rule-workbench-rule-list" class="rule-workbench-rule-list"></div>
+            </aside>
+            <section class="panel rule-workbench-detail">
+              <div id="rule-workbench-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="tables" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">TABLE BROWSER</p>
+              <h2>所有表与视图内容</h2>
+            </div>
+            <div class="inline-controls">
+              <input id="table-filter" type="search" placeholder="过滤表名或中文业务名" />
+            </div>
+          </div>
+          <div class="browser-layout">
+            <aside id="entity-list" class="entity-list"></aside>
+            <section class="table-panel">
+              <div id="selected-entity-head" class="selected-entity-head"></div>
+              <div class="table-toolbar">
+                <input id="table-search" type="search" placeholder="在当前表内搜索" />
+                <select id="page-size" title="每页条数">
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                  <option value="200">200</option>
+                </select>
+                <button id="prev-page" title="上一页">‹</button>
+                <button id="next-page" title="下一页">›</button>
+              </div>
+              <div id="data-table-wrap" class="data-table-wrap"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="customers" class="view is-active">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">SCENE 1 USER FILE CHECK</p>
+              <h2>用户全景档案</h2>
+            </div>
+            <aside id="live-extract-status-panel" class="live-extract-status-panel live-archive-only" aria-live="polite">
+              <div class="live-extract-status-head">
+                <strong id="live-extract-status-title">抽取状态：待命</strong>
+                <span id="live-extract-status-meta">未启动</span>
+              </div>
+              <div class="live-extract-progress-track" aria-hidden="true">
+                <span id="live-extract-progress-fill"></span>
+              </div>
+              <div id="live-extract-status-phase" class="live-extract-status-phase">建库 · 拉源 · 筛选 · 规则直抽 · 写目标库</div>
+              <div id="live-extract-status-log" class="live-extract-status-log">点击按钮后会实时显示 runId、阶段、完成数和最近事件。</div>
+              <div id="live-extract-completed-list" class="live-extract-completed-list"></div>
+            </aside>
+            <div class="customers-head-actions">
+              <div class="inline-controls">
+                <input id="customer-id-input" type="search" placeholder="输入姓名 / 电话 / 门店 / 顾问 / 客户ID" />
+                <button id="load-customer" class="primary-button">查看</button>
+                <input id="live-extract-count" class="live-archive-only" type="number" min="1" max="20" value="5" aria-label="抽取客户数" hidden />
+                <button id="live-extract-button" class="secondary-button live-archive-only" type="button" hidden>抽取 N 名新客户</button>
+                <button id="live-xizi-batch-button" class="secondary-button live-archive-only" type="button" hidden>按西子名单规则抽取</button>
+                <button id="live-xizi-update-button" class="secondary-button live-archive-only" type="button" hidden>按西子名单更新抽取</button>
+                <button id="live-phone-extract-open" class="secondary-button live-archive-only" type="button">按手机号抽取</button>
+                <button id="live-extract-stop-button" class="secondary-button danger-button live-archive-only" type="button" disabled>停止抽取</button>
+              </div>
+            </div>
+          </div>
+          <div id="live-extract-log" class="scene-user-source-note live-archive-only"></div>
+          <div class="customer-layout">
+            <section class="panel scene-user-panel">
+              <div class="panel-title">全部用户全景档案</div>
+              <div id="scene-user-list-summary" class="scene-user-list-summary"></div>
+              <div id="customer-list" class="customer-list"></div>
+            </section>
+            <section class="panel customer-detail scene-user-detail">
+              <div id="customer-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <div id="live-phone-extract-modal" class="modal-shell is-hidden live-archive-only" aria-hidden="true">
+          <div class="modal-backdrop" data-live-phone-modal-close></div>
+          <section class="phone-extract-dialog" role="dialog" aria-modal="true" aria-labelledby="live-phone-extract-title">
+            <div class="phone-extract-head">
+              <div>
+                <p class="eyebrow">PHONE DIRECT EXTRACT</p>
+                <h3 id="live-phone-extract-title">按完整手机号抽取</h3>
+              </div>
+              <button class="icon-button" type="button" data-live-phone-modal-close aria-label="关闭">×</button>
+            </div>
+            <div class="phone-extract-count-row">
+              <label for="live-phone-extract-count">抽取人数</label>
+              <input id="live-phone-extract-count" type="number" min="1" max="20" value="1" />
+              <button id="live-phone-extract-build" class="secondary-button" type="button">生成输入框</button>
+            </div>
+            <div id="live-phone-extract-fields" class="phone-extract-fields"></div>
+            <div id="live-phone-extract-message" class="phone-extract-message">请输入完整手机号；系统会按手机号匹配 HIS 客户，再规则抽取 230 点；Qwen 总结默认关闭。</div>
+            <div class="phone-extract-actions">
+              <button class="secondary-button" type="button" data-live-phone-modal-close>取消</button>
+              <button id="live-phone-extract-start" class="primary-button" type="button">开始规则抽取</button>
+            </div>
+          </section>
+        </div>
+
+        <section id="ds-panorama" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">DEEPSEEK V3 USER FILE CHECK</p>
+              <h2>Ds全景档案</h2>
+            </div>
+            <div class="ds-operation-panel">
+              <div id="ds-v3-operation-log" class="ds-operation-log" aria-live="polite">DS v3：待命</div>
+              <div class="inline-controls">
+                <button id="refresh-ds-v3-panorama" class="secondary-button">刷新</button>
+                <input id="ds-v3-random-limit" type="number" min="1" max="10" value="1" title="拉取数量" />
+                <button id="run-ds-v3-random" class="primary-button">任意拉取并生成 DS v3</button>
+              </div>
+            </div>
+          </div>
+          <div class="customer-layout">
+            <section class="panel scene-user-panel">
+              <div class="panel-title">全部 DS 全景档案</div>
+              <div id="ds-v3-list-summary" class="scene-user-list-summary"></div>
+              <div id="ds-v3-customer-list" class="customer-list"></div>
+            </section>
+            <section class="panel customer-detail scene-user-detail">
+              <div id="ds-v3-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="dictionary" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">BUSINESS DICTIONARY</p>
+              <h2>英文库表名与中文业务内容</h2>
+            </div>
+          </div>
+          <div id="dictionary-table" class="dictionary-table"></div>
+        </section>
+
+        <section id="requirements" class="view">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">CONFIRM REQUIREMENT AUDIT</p>
+              <h2>confirm 230 信息点核验</h2>
+            </div>
+            <div class="inline-controls">
+              <input id="requirement-customer-input" type="search" placeholder="输入或沿用 HIS_xxx 客户ID" />
+              <button id="load-requirement-audit" class="primary-button">核验</button>
+            </div>
+          </div>
+          <div id="requirement-audit-summary" class="requirement-audit-summary"></div>
+          <div class="analysis-grid requirement-charts">
+            <section class="panel">
+              <div class="panel-title">客户值状态</div>
+              <div id="requirement-value-chart" class="bar-chart"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-title">字段映射状态</div>
+              <div id="requirement-mapping-chart" class="bar-chart"></div>
+            </section>
+            <section class="panel wide">
+              <div class="panel-title">每个命中客户的信息点索引数</div>
+              <div id="requirement-customer-coverage-chart" class="bar-chart compact-bars"></div>
+            </section>
+          </div>
+          <div class="requirement-toolbar">
+            <input id="requirement-filter" type="search" placeholder="搜索 confirm 原文、REQ编号、目标表、状态" />
+            <select id="requirement-status-filter" title="状态过滤">
+              <option value="">全部状态</option>
+              <option value="已有客户值">已有客户值</option>
+              <option value="已建索引，待抽取真实值">已建索引，待抽取真实值</option>
+              <option value="已入目录">已入目录</option>
+              <option value="未入当前目录">未入当前目录</option>
+            </select>
+          </div>
+          <div id="requirement-sections" class="requirement-audit-list"></div>
+        </section>
+
+        <section id="search-results-panel" class="floating-results" hidden>
+          <div class="floating-head">
+            <strong>全库搜索结果</strong>
+            <button id="close-search-results" title="关闭">×</button>
+          </div>
+          <div id="search-results"></div>
+        </section>
+
+        <section id="truth-detail-modal" class="truth-detail-modal" hidden>
+          <div class="truth-detail-dialog" role="dialog" aria-modal="true" aria-label="真值详情">
+            <div class="truth-detail-title">
+              <strong>真值详情</strong>
+              <button id="close-truth-detail" title="关闭">×</button>
+            </div>
+            <div id="truth-detail-body"></div>
+          </div>
+        </section>
+
+        <section id="ds-profile-batch-modal" class="truth-detail-modal" hidden>
+          <div class="truth-detail-dialog ds-batch-dialog" role="dialog" aria-modal="true" aria-label="选择 DS 用户画像分析客户">
+            <div class="truth-detail-title">
+              <div>
+                <strong>选择客户生成/更新 DS 画像</strong>
+                <span>来源：已生成的 Ds全景档案；只写本地结果，不触达客户。</span>
+              </div>
+              <button id="close-ds-profile-batch" title="关闭">×</button>
+            </div>
+            <div class="ds-batch-toolbar">
+              <label><input id="ds-profile-include-existing" type="checkbox" /> 包含已分析用户用于更新</label>
+              <button id="reload-ds-profile-candidates" class="secondary-button" type="button">刷新列表</button>
+            </div>
+            <div id="ds-profile-candidate-list" class="ds-batch-list"></div>
+            <div class="ds-batch-footer">
+              <span id="ds-profile-batch-status">请选择客户。</span>
+              <button id="run-ds-profile-selected" class="primary-button" type="button">生成/更新选中客户</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="profile-strategy-sync-modal" class="truth-detail-modal" hidden>
+          <div class="truth-detail-dialog ds-batch-dialog profile-strategy-sync-dialog" role="dialog" aria-modal="true" aria-label="同步用户画像分析">
+            <div class="truth-detail-title">
+              <div>
+                <strong>同步用户画像分析</strong>
+                <span>来源：用户全景档案（Agent 实盘）；只生成本地同步请求。</span>
+              </div>
+              <button id="close-profile-strategy-sync" title="关闭">×</button>
+            </div>
+            <div class="profile-strategy-sync-mode" role="tablist" aria-label="同步类型">
+              <label><input name="profile-strategy-sync-mode" type="radio" value="reanalyze" checked /> 现有用户重新分析</label>
+              <label><input name="profile-strategy-sync-mode" type="radio" value="new" /> 新增用户分析</label>
+            </div>
+            <div class="ds-batch-toolbar profile-strategy-sync-toolbar">
+              <span>从用户全景档案候选中选择</span>
+              <button id="reload-profile-strategy-sync-options" class="secondary-button" type="button">刷新列表</button>
+            </div>
+            <div id="profile-strategy-sync-customer-list" class="ds-batch-list"></div>
+            <div class="ds-batch-footer">
+              <span id="profile-strategy-sync-status">请选择客户。</span>
+              <button id="submit-profile-strategy-sync" class="primary-button" type="button">提交同步请求</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./static-api-data.js"></script>
+    <script src="./static-fetch-adapter.js"></script>
+    <script src="./lifecycle-agent-renderers.js"></script>
+    <script src="./h5-review-kit.js"></script>
+    <script src="./h5-summary-modal.js?v=202607101405"></script>
+    <script src="./app.js?v=202607092131"></script>
+  </body>
+</html>

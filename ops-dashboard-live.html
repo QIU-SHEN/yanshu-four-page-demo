@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实盘智能运营DashBoard</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./ops-dashboard.css" />
+    <link rel="stylesheet" href="./p7-live.css" />
+  </head>
+  <body>
+    <div class="ops-shell">
+      <aside class="ops-rail" aria-label="实盘智能运营DashBoard 导航">
+        <a class="brand-row" href="./?archiveSource=live#customers" aria-label="返回实盘用户全景档案">
+          <span class="brand-mark"><img src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></span>
+          <span>
+            <strong>实盘智能运营DashBoard</strong>
+            <small>capture_source=p7_live_pipeline</small>
+          </span>
+        </a>
+
+        <nav class="section-nav" aria-label="页面区块">
+          <a href="#dashboard">4.1 数据看板</a>
+          <a href="#quality">4.2 数据质量</a>
+          <a href="#strategy">4.3 策略评估</a>
+          <a href="#risk">4.5 风险客户汇总</a>
+          <a href="./index.html#customers">样板 Dashboard</a>
+        </nav>
+
+        <div class="source-status">
+          <span class="status-dot"></span>
+          <span>仅聚合实盘客户事件 · 本地人工门禁</span>
+        </div>
+      </aside>
+
+      <main class="ops-main">
+        <header class="top-command">
+          <div>
+            <p class="eyebrow">P7 LIVE OPERATING DASHBOARD</p>
+            <h1>实盘智能运营DashBoard</h1>
+          </div>
+          <div class="command-actions">
+            <button class="ghost-button" type="button" id="reload-live-dashboard">刷新</button>
+            <a class="ghost-button" href="./index.html#customers">样板 Dashboard</a>
+          </div>
+        </header>
+
+        <div id="loading-state" class="loading-state">正在读取实盘 Dashboard...</div>
+
+        <section class="workspace-section" id="dashboard">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">4.1 数据看板</p>
+            </div>
+          </div>
+          <div class="metric-ladder" id="live-metrics"></div>
+          <section class="data-panel">
+            <div class="panel-head">
+              <h3>实盘客户事件</h3>
+              <small>来自任务卡、门禁和实盘 Agent 输出</small>
+            </div>
+            <div id="live-customer-events"></div>
+          </section>
+        </section>
+
+        <section class="workspace-grid two-col" id="quality">
+          <section class="data-panel">
+            <div class="panel-head">
+              <h3>4.2 数据质量</h3>
+            </div>
+            <div id="quality-panel" class="p7-ops-note"></div>
+          </section>
+          <section class="data-panel" id="strategy">
+            <div class="panel-head">
+              <h3>4.3 策略评估</h3>
+            </div>
+            <div id="strategy-panel" class="p7-ops-note"></div>
+          </section>
+        </section>
+
+        <section class="data-panel" id="risk">
+          <div class="panel-head">
+            <h3>4.5 风险客户汇总</h3>
+          </div>
+          <div id="risk-panel" class="p7-ops-note"></div>
+        </section>
+
+        <section class="data-panel">
+          <div class="panel-head">
+            <h3>Dashboard Agent 洞察</h3>
+          </div>
+          <div id="insight-panel" class="p7-live-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./static-api-data.js"></script>
+    <script src="./static-fetch-adapter.js"></script>
+    <script src="./p7-live-common.js"></script>
+    <script src="./ops-dashboard-live.js"></script>
+  </body>
+</html>

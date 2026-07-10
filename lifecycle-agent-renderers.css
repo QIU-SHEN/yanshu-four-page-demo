@@ -1,0 +1,286 @@
+.lifecycle-agent-shared,
+.lifecycle-agent-section,
+.lifecycle-agent-deliverable,
+.lifecycle-agent-branch {
+  border: 1px solid rgba(36, 50, 45, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.lifecycle-agent-shared,
+.lifecycle-agent-section {
+  margin-top: 14px;
+}
+
+.lifecycle-agent-title-row,
+.lifecycle-agent-section-head,
+.lifecycle-agent-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lifecycle-agent-title-row h3,
+.lifecycle-agent-section-head h4,
+.lifecycle-agent-card-head strong {
+  margin: 0;
+  color: #17201c;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.lifecycle-agent-card-head strong {
+  display: block;
+  font-size: 15px;
+}
+
+.lifecycle-agent-card-head span,
+.lifecycle-agent-title-row p,
+.lifecycle-agent-section-head span,
+.lifecycle-agent-eyebrow,
+.lifecycle-agent-source,
+.lifecycle-agent-copy {
+  color: #66746f;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.lifecycle-agent-eyebrow {
+  margin: 0 0 4px;
+  color: #0f8b68;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.lifecycle-agent-metrics,
+.lifecycle-agent-workflow-grid,
+.lifecycle-agent-boundary-grid,
+.lifecycle-agent-signal-grid,
+.lifecycle-agent-step-grid,
+.lifecycle-agent-message-grid,
+.lifecycle-agent-two-col,
+.lifecycle-agent-phone-row {
+  display: grid;
+  gap: 10px;
+}
+
+.lifecycle-agent-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin-top: 14px;
+}
+
+.lifecycle-agent-workflow-grid,
+.lifecycle-agent-boundary-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 12px;
+}
+
+.lifecycle-agent-step-grid,
+.lifecycle-agent-message-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.lifecycle-agent-signal-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.lifecycle-agent-two-col,
+.lifecycle-agent-phone-row {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 12px;
+}
+
+.lifecycle-agent-metric,
+.lifecycle-agent-kv,
+.lifecycle-agent-step-grid article,
+.lifecycle-agent-message-grid article,
+.lifecycle-agent-signal-grid div,
+.lifecycle-agent-trace-list div {
+  border: 1px solid rgba(36, 50, 45, 0.1);
+  background: rgba(247, 248, 242, 0.72);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.lifecycle-agent-metric span,
+.lifecycle-agent-kv span,
+.lifecycle-agent-signal-grid span,
+.lifecycle-agent-trace-list span,
+.lifecycle-agent-message-grid span {
+  display: block;
+  color: #66746f;
+  font-size: 12px;
+}
+
+.lifecycle-agent-metric strong,
+.lifecycle-agent-kv strong,
+.lifecycle-agent-signal-grid strong,
+.lifecycle-agent-trace-list strong {
+  display: block;
+  margin-top: 4px;
+  color: #17201c;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.lifecycle-agent-metric.is-ok strong,
+.lifecycle-agent-pill.is-ok {
+  color: #0f8b68;
+}
+
+.lifecycle-agent-metric.is-warn strong,
+.lifecycle-agent-pill.is-warn {
+  color: #af7b21;
+}
+
+.lifecycle-agent-metric.is-danger strong,
+.lifecycle-agent-pill.is-danger {
+  color: #b84d3f;
+}
+
+.lifecycle-agent-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.lifecycle-agent-pill {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid rgba(15, 139, 104, 0.2);
+  background: rgba(15, 139, 104, 0.08);
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: #24322d;
+  font-size: 12px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.lifecycle-agent-pill.is-status {
+  border-color: rgba(47, 101, 184, 0.22);
+  background: rgba(47, 101, 184, 0.08);
+  color: #2f65b8;
+}
+
+.lifecycle-agent-branch,
+.lifecycle-agent-deliverable {
+  margin-top: 10px;
+}
+
+.lifecycle-agent-branch.is-missing {
+  border-color: rgba(184, 77, 63, 0.24);
+  background: rgba(184, 77, 63, 0.05);
+}
+
+.lifecycle-agent-workflow {
+  margin-top: 12px;
+}
+
+.lifecycle-agent-subsection {
+  margin-top: 14px;
+}
+
+.lifecycle-agent-subsection h5,
+.lifecycle-agent-two-col h5,
+.lifecycle-agent-deliverable h5 {
+  margin: 0 0 8px;
+  color: #24322d;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.lifecycle-agent-step-grid strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #17201c;
+  font-size: 13px;
+}
+
+.lifecycle-agent-step-grid p,
+.lifecycle-agent-message-grid p,
+.lifecycle-agent-signal-grid p,
+.lifecycle-agent-phone p,
+.lifecycle-agent-phone em {
+  margin: 5px 0 0;
+  color: #66746f;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lifecycle-agent-step-grid b {
+  margin-right: 6px;
+  color: #24322d;
+}
+
+.lifecycle-agent-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #24322d;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.lifecycle-agent-list.is-compact {
+  font-size: 12px;
+}
+
+.lifecycle-agent-phone {
+  min-height: 300px;
+  border: 1px solid rgba(36, 50, 45, 0.14);
+  background:
+    linear-gradient(180deg, rgba(15, 139, 104, 0.08), rgba(255, 255, 255, 0.95)),
+    #fff;
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lifecycle-agent-phone span {
+  color: #0f8b68;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lifecycle-agent-phone h4 {
+  margin: 0;
+  color: #17201c;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.lifecycle-agent-phone strong {
+  color: #24322d;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.lifecycle-agent-phone em {
+  margin-top: auto;
+  font-style: normal;
+  color: #af7b21;
+}
+
+.lifecycle-agent-empty {
+  border: 1px dashed rgba(36, 50, 45, 0.18);
+  border-radius: 8px;
+  padding: 14px;
+  color: #66746f;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .lifecycle-agent-title-row,
+  .lifecycle-agent-section-head,
+  .lifecycle-agent-card-head {
+    display: grid;
+  }
+}

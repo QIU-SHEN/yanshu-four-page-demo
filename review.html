@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f9f9f9" />
+    <title>顾问任务&H5审核</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="lifecycle-agent-renderers.css" />
+    <link rel="stylesheet" href="review.css?v=202607101224" />
+    <link rel="stylesheet" href="h5-summary-modal.css?v=202607091725" />
+</head>
+  <body>
+    <div class="review-app">
+      <aside class="review-sidebar">
+        <a class="back-link" href="./#lifecycle">返回检查台</a>
+        <div class="review-brand">
+          <div class="brand-word"><img src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></div>
+          <p>顾问任务&H5审核</p>
+        </div>
+        <nav class="side-nav" aria-label="审核平台导航">
+          <a class="is-active" href="#workspace">工作台</a>
+          <a href="#evidence">证据摘要</a>
+          <a href="#preview">H5 预览</a>
+        </nav>
+        <div class="side-note">
+          <strong>边界</strong>
+          <span>仅本地结构化审核。无自动发布、无远端写库、无敏感正文外显。</span>
+        </div>
+      </aside>
+
+      <main class="review-main">
+        <header class="review-header">
+          <div>
+            <p class="eyebrow">YESSKIN CARE RHYTHM</p>
+            <h1>顾问任务&H5审核</h1>
+          </div>
+          <nav class="review-section-nav" aria-label="任务卡模块导航">
+            <a href="#review-section-basic">1. 客户基本信息</a>
+            <a href="#review-section-goal">2. 互动目标</a>
+            <a href="#review-section-communication">3. 沟通角度与发送</a>
+          </nav>
+          <div class="header-actions">
+            <div id="ds-advisor-h5-operation-log" class="ds-operation-log ds-advisor-h5-only-action" hidden aria-live="polite">DS 顾问H5：待命</div>
+          </div>
+        </header>
+
+        <section id="workspace" class="workspace-grid">
+          <aside class="queue-panel panel">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">TASK QUEUE</p>
+                <h2>待处理任务</h2>
+              </div>
+              <span id="queue-count" class="count-chip">0</span>
+            </div>
+            <div class="filter-row">
+              <input id="task-search" type="search" placeholder="搜索客户姓名或 ID" />
+              <button id="task-search-submit" class="search-action" type="button">
+                <span class="search-action-spinner" aria-hidden="true"></span>
+                <span class="search-action-label">搜索</span>
+              </button>
+            </div>
+            <div id="task-list" class="task-list"></div>
+          </aside>
+
+          <section class="task-panel panel" id="evidence">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">ADVISOR TASK CARD</p>
+                <h2>任务卡内容</h2>
+              </div>
+              <span id="task-status-chip" class="status-chip">读取中</span>
+            </div>
+            <div id="task-card-detail" class="task-card-detail"></div>
+          </section>
+
+          <section class="preview-panel panel" id="preview">
+            <div class="panel-head">
+              <div>
+                <p class="panel-kicker">CUSTOMER VISIBLE H5</p>
+                <h2>实时 H5 预览</h2>
+              </div>
+              <span id="preview-state" class="status-chip is-muted">未生成</span>
+            </div>
+            <div class="phone-shell">
+              <div class="phone-topbar">
+                <span><img class="phone-topbar-logo" src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></span>
+                <span id="phone-step">STEP 01 / 03</span>
+              </div>
+              <div id="h5-preview" class="h5-preview"></div>
+              <div class="phone-page-tabs">
+                <button class="page-tab is-active" type="button" data-page="0">01</button>
+                <button class="page-tab" type="button" data-page="1">02</button>
+                <button class="page-tab" type="button" data-page="2">03</button>
+              </div>
+              <div id="h5-booking-modal" class="h5-booking-modal" hidden role="dialog" aria-modal="true" aria-labelledby="h5-booking-title">
+                <div class="h5-booking-mask" data-booking-close></div>
+                <form class="h5-booking-card" id="h5-booking-form" autocomplete="off" novalidate>
+                  <header class="h5-booking-head">
+                    <div>
+                      <p class="h5-booking-eyebrow"><img src="./assets/yesskin-logo.png" alt="YESSKIN 颜术" /></p>
+                      <h3 id="h5-booking-title">立即预约状态复盘</h3>
+                    </div>
+                    <button type="button" class="h5-booking-x" data-booking-close aria-label="关闭">×</button>
+                  </header>
+                  <p class="h5-booking-hint">提交后顾问会与您确认时间。本表单仅样板演示，不触发企业微信或短信。</p>
+                  <label class="h5-booking-field">
+                    <span>姓名</span>
+                    <input type="text" name="name" required />
+                  </label>
+                  <label class="h5-booking-field">
+                    <span>手机号</span>
+                    <input type="tel" name="phone" pattern="[0-9 +\-]{8,}" placeholder="顾问通过此号联系您" />
+                  </label>
+                  <div class="h5-booking-row">
+                    <label class="h5-booking-field">
+                      <span>期望日期</span>
+                      <input type="date" name="date" />
+                    </label>
+                    <label class="h5-booking-field">
+                      <span>时段</span>
+                      <select name="slot">
+                        <option>上午</option>
+                        <option>下午</option>
+                        <option>晚间</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label class="h5-booking-field">
+                    <span>备注</span>
+                    <textarea name="note" rows="2"></textarea>
+                  </label>
+                  <footer class="h5-booking-foot">
+                    <button type="button" class="h5-booking-cancel" data-booking-close>取消</button>
+                    <button type="submit" class="h5-booking-submit">提交预约意向</button>
+                  </footer>
+                </form>
+              </div>
+              <div id="h5-toast" class="h5-toast" hidden></div>
+              <div class="h5-summary-btn-wrap" style="padding:10px 8px 0;text-align:center">
+                <button type="button" class="primary-action" id="open-h5-summary-btn" style="width:100%;max-width:280px">生成 H5 总结图</button>
+              </div>
+            </div>
+          </section>
+        </section>
+        <p id="action-status" class="action-status" hidden></p>
+        <section id="customer-basic-challenge-modal" class="h5-booking-modal customer-basic-challenge-modal" hidden role="dialog" aria-modal="true" aria-labelledby="customer-basic-challenge-title">
+          <div class="h5-booking-mask" data-customer-basic-challenge-close></div>
+          <form class="h5-booking-card customer-basic-challenge-card" id="customer-basic-challenge-form" autocomplete="off" novalidate>
+            <header class="h5-booking-head">
+              <div>
+                <p class="h5-booking-eyebrow">CUSTOMER BASIC INFO</p>
+                <h3 id="customer-basic-challenge-title">客户基本信息质疑</h3>
+              </div>
+              <button type="button" class="h5-booking-x" data-customer-basic-challenge-close aria-label="关闭">×</button>
+            </header>
+            <p class="h5-booking-hint">当前客户基本信息板块的全部展示内容。只填写有疑问的条目；提交后进入本地复核事件，等待数据核查员同步用户全景档案。</p>
+            <div id="customer-basic-challenge-list" class="customer-basic-challenge-list"></div>
+            <label class="h5-booking-field customer-basic-challenge-global">
+              <span>整体质疑说明</span>
+              <textarea id="customer-basic-challenge-general" rows="3" placeholder="例如：顾问确认客人当前关注点已从色斑转为抗衰，请核查并更新客户基本信息、用户画像分析和互动目标。"></textarea>
+            </label>
+            <footer class="h5-booking-foot">
+              <button type="button" class="h5-booking-cancel" data-customer-basic-challenge-close>取消</button>
+              <button type="submit" class="h5-booking-submit">提交质疑</button>
+            </footer>
+          </form>
+        </section>
+        <section id="ds-advisor-h5-batch-modal" class="h5-booking-modal ds-advisor-h5-batch-modal" hidden role="dialog" aria-modal="true" aria-labelledby="ds-advisor-h5-batch-title">
+          <div class="h5-booking-mask" data-ds-advisor-batch-close></div>
+          <div class="h5-booking-card ds-advisor-h5-batch-card">
+            <header class="h5-booking-head">
+              <div>
+                <p class="h5-booking-eyebrow">DS ADVISOR H5</p>
+                <h3 id="ds-advisor-h5-batch-title">选择已完成 DS 画像的客户</h3>
+              </div>
+              <button type="button" class="h5-booking-x" data-ds-advisor-batch-close aria-label="关闭">×</button>
+            </header>
+            <p class="h5-booking-hint">只显示存在于 DS 用户画像分析中的客户；默认优先选择未处理过顾问任务&H5审核的客户。</p>
+            <div class="ds-advisor-h5-batch-toolbar">
+              <label><input id="ds-advisor-h5-include-existing" type="checkbox" /> 包含已处理用户用于更新</label>
+              <button id="reload-ds-advisor-h5-candidates" class="secondary-action" type="button">刷新列表</button>
+            </div>
+            <div id="ds-advisor-h5-candidate-list" class="ds-advisor-h5-candidate-list"></div>
+            <div class="ds-advisor-h5-batch-footer">
+              <span id="ds-advisor-h5-batch-status">请选择客户。</span>
+              <button id="run-ds-advisor-h5-selected" class="primary-action" type="button">生成选中客户</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <section id="advisor-script-modal" class="advisor-script-modal" hidden role="dialog" aria-modal="true" aria-labelledby="advisor-script-modal-title">
+      <div class="advisor-script-modal-mask" data-advisor-script-modal-close></div>
+      <div class="advisor-script-dialog">
+        <header class="advisor-script-dialog-head">
+          <div>
+            <p class="panel-kicker">C5 ADVISOR SCRIPT</p>
+            <h3 id="advisor-script-modal-title">顾问话术生成与修改</h3>
+          </div>
+          <div class="advisor-script-dialog-actions">
+            <button type="button" class="secondary-action" data-advisor-script-prompt-open>当前提示词</button>
+            <button type="button" class="secondary-action" data-advisor-script-modal-close>关闭</button>
+          </div>
+        </header>
+        <div id="advisor-script-modal-body" class="advisor-script-modal-body"></div>
+      </div>
+    </section>
+
+    <script src="./static-api-data.js"></script>
+    <script src="./static-fetch-adapter.js"></script>
+    <script src="lifecycle-agent-renderers.js"></script>
+    <script src="h5-review-kit.js"></script>
+    <script src="review.js?v=202607101830"></script>
+    <script src="h5-summary-modal.js?v=202607101405"></script>
+  </body>
+</html>
